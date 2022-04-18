@@ -23,6 +23,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.salesforce.framework.Factory.TestBase;
 import com.salesforce.framework.Factory.TestBase_M2;
+import com.salesforce.framework.Util.PropertiesOperations;
 import com.salesforce.framework.Util.Xls_Reader;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -78,10 +79,41 @@ public class MagentoAdmin_POC_page extends TestBase_M2{
 		for(int i=2; i<tableRows.size()+2; i++) {			
 			String createdDate = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[10]/div")).getText();
 			String atriumID = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[17]/div")).getText();
+			String name = driver.findElement(By.xpath("//tbody/tr[" + i +"]/td[3]/div")).getText();
 			mapValues.put(atriumID, createdDate);
-			System.out.println(atriumID + "----" + createdDate);
+			System.out.println(atriumID + "----" + createdDate + "----" + name);
 		}
 //		System.out.println("Map value is: " + mapValues.get("85035473"));
+	}
+	
+	public void update_db_table_with_MagentoDetails() throws SQLException {
+		Connection connection = DriverManager.getConnection("jdbc:postgresql://ec2-52-36-238-103.us-west-2.compute.amazonaws.com:5432/perf", "admin","perfadmin");
+		System.out.println("Connection to postgreSQL server successfully");
+//		String sql = "INSERT INTO sfaccounts2 VALUES('4/10/2022 12:13 PM','prasadch', 1234, 'abc')";
+		
+		List<WebElement> rowCount = driver.findElements(By.xpath("//tr[@class='data-row' or @class='data-row _odd-row']"));
+		for(int i=2; i<rowCount.size()+2; i++) {
+			
+			String createdDate = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[10]/div")).getText();
+			String atriumID = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[17]/div")).getText();
+			String acctName = driver.findElement(By.xpath("//tbody/tr[" + i +"]/td[3]/div")).getText();
+			String searchType = "M";
+			String searchID = PropertiesOperations.getPropertyValueByKey("accountSearchkey");
+			
+			String sql = "INSERT INTO perf (create_date, atrium_id, account_name, search_type, search_id) VALUES (?,?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, createdDate);
+			statement.setString(2, atriumID);
+			statement.setString(3, acctName);
+			statement.setString(4, searchType);
+			statement.setString(5, searchID);
+			
+			statement.executeUpdate();
+			System.out.println(createdDate + " -- " + acctName + " -- " + atriumID + " -- " + searchType);
+		}
+		
+		connection.close();
+		System.out.println("Query completed...........");
 	}
 	
 	public void getValuesNull() throws SQLException {

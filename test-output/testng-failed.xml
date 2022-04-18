@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [SF performance POC Automation test suite]">
+  <listeners>
+    <listener class-name="com.salesforce.framework.Util.ListenersImplementation"/>
+  </listeners>
+  <test thread-count="5" name="SF POC test cases(failed)">
     <classes>
-      <class name="com.salesforce.framework.Testcases.MagentoAdminPOC_Test">
+      <class name="com.salesforce.framework.Testcases.SalesforcePOC_Test">
         <methods>
           <include name="closeBrowser"/>
-          <include name="BeneficiaryRegistrationMap"/>
           <include name="setUp"/>
+          <include name="launchSite"/>
         </methods>
-      </class> <!-- com.salesforce.framework.Testcases.MagentoAdminPOC_Test -->
+      </class> <!-- com.salesforce.framework.Testcases.SalesforcePOC_Test -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- SF POC test cases(failed) -->
+</suite> <!-- Failed suite [SF performance POC Automation test suite] -->

@@ -1,9 +1,6 @@
 package com.salesforce.framework.Testcases;
 
 import java.sql.SQLException;
-import java.util.HashMap;
-
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.salesforce.framework.Factory.TestBase_M2;
@@ -21,8 +18,8 @@ public class MagentoAdminPOC_Test extends TestBase_M2{
 		m2.ordersNavigation();
 		m2.getExcelData();
 		m2.searchWithAtriumID();
-		m2.getCreatedDate();
-//		waitFor();
-		m2.getValuesNull();
+		m2.update_db_table_with_MagentoDetails();
+//		m2.getCreatedDate();
+//		m2.getValuesNull();
 	}
 }
