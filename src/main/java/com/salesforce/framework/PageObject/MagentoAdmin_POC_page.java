@@ -86,7 +86,7 @@ public class MagentoAdmin_POC_page extends TestBase_M2{
 	
 	public void getValuesNull() throws SQLException {
 		Connection connection = DriverManager.getConnection("jdbc:postgresql://ec2-52-36-238-103.us-west-2.compute.amazonaws.com:5432/perf", "admin","perfadmin");
-		String query ="select * from perftest where m2_createdate IS NULL";
+		String query ="select * from perf where m2_createdate IS NULL";
 
 		Statement statement = connection.createStatement();
 		ResultSet result = statement.executeQuery(query);
@@ -106,7 +106,7 @@ public class MagentoAdmin_POC_page extends TestBase_M2{
 	public void updateRecords(String id, String date) throws SQLException {
 		Connection connection = DriverManager.getConnection("jdbc:postgresql://ec2-52-36-238-103.us-west-2.compute.amazonaws.com:5432/perf", "admin","perfadmin");
 		
-		String query = "Update perftest SET m2_createdate = ? WHERE atrium_id =?";
+		String query = "Update perf SET m2_createdate = ? WHERE atrium_id =?";
 		
 		PreparedStatement stmt = connection.prepareStatement(query);
 //		String str = "12345";
@@ -135,7 +135,7 @@ public class MagentoAdmin_POC_page extends TestBase_M2{
 			String M2createDate = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[10]/div")).getText();
 			String atriumID = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[17]/div")).getText();
 			
-			String sql = "INSERT INTO perftest (create_date, atrium_id, account_name, search_type) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO perf (create_date, atrium_id, account_name, search_type) VALUES (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, M2createDate);
 			

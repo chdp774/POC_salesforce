@@ -96,7 +96,7 @@ public class AccountInformationPage extends TestBase{
 			String acctName = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[3]/span/a")).getText();
 			String searchType = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[8]/span/span")).getText();
 			
-			String sql = "INSERT INTO perftest (create_date, atrium_id, account_name, search_type) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO perf (create_date, atrium_id, account_name, search_type) VALUES (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, createDate);
 			statement.setString(2, attriumID);

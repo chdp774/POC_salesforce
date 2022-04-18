@@ -9,11 +9,5 @@
 		<classes>
 			<class name="com.salesforce.framework.Testcases.SalesforcePOC_Test" />
 		</classes>
-	</test>
-	
-	<!-- 
-	AccountInformationTest
-	SalesforceLoginTest
-	 -->
-	 
+	</test> 
 </suite>
