@@ -30,6 +30,7 @@ public class SalesforcePOC_Test extends TestBase{
 		accounts.setAllAccountsOption();
 		accounts.accountSearch();
 		accounts.allAccountsCheckbox();
+		accounts.tabledata();
 		accounts.update_db_table();
 	}
 }

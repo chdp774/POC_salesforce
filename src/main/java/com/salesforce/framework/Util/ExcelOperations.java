@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelOperations {
-	String filePath = "./src/main/resources/testdata/Imagility_testdata.xlsx";
+	String filePath = "./src/main/resources/testdata/atriumID_datasheet.xlsx";
 	Sheet sh;
 
 	public ExcelOperations(String sheetName) {

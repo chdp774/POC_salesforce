@@ -44,7 +44,7 @@ public class SalesforcePOC extends TestBase{
 		password.sendKeys(PropertiesOperations.getPropertyValueByKey("password"));
 		waitFor(1);
 		login_Btn.click();
-		waitFor(5);
+		waitFor(10);
 		verificationCode.sendKeys(login2());
 	}
 	

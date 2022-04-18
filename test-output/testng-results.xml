@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="SF performance POC Automation test suite" duration-ms="258130" started-at="2022-04-13T13:29:29 IST" finished-at="2022-04-13T13:33:47 IST">
+  <suite name="Default suite" duration-ms="206842" started-at="2022-04-17T21:56:02 IST" finished-at="2022-04-17T21:59:29 IST">
     <groups>
     </groups>
-    <test name="SF POC test cases" duration-ms="258130" started-at="2022-04-13T13:29:29 IST" finished-at="2022-04-13T13:33:47 IST">
-      <class name="com.salesforce.framework.Testcases.SalesforcePOC_Test">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.salesforce.framework.Testcases.SalesforcePOC_Test@64c87930]" name="setUp" is-config="true" duration-ms="7535" started-at="2022-04-13T13:29:30 IST" finished-at="2022-04-13T13:29:37 IST">
+    <test name="Default test" duration-ms="206842" started-at="2022-04-17T21:56:02 IST" finished-at="2022-04-17T21:59:29 IST">
+      <class name="com.salesforce.framework.Testcases.MagentoAdminPOC_Test">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.salesforce.framework.Testcases.MagentoAdminPOC_Test@649bec2e]" name="setUp" is-config="true" duration-ms="14068" started-at="2022-04-17T21:56:03 IST" finished-at="2022-04-17T21:56:17 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="launchSite()[pri:0, instance:com.salesforce.framework.Testcases.SalesforcePOC_Test@64c87930]" name="launchSite" duration-ms="250246" started-at="2022-04-13T13:29:37 IST" finished-at="2022-04-13T13:33:47 IST">
+        <test-method status="PASS" signature="BeneficiaryRegistrationMap()[pri:0, instance:com.salesforce.framework.Testcases.MagentoAdminPOC_Test@649bec2e]" name="BeneficiaryRegistrationMap" duration-ms="192692" started-at="2022-04-17T21:56:17 IST" finished-at="2022-04-17T21:59:29 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchSite -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.salesforce.framework.Testcases.SalesforcePOC_Test@64c87930]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2022-04-13T13:33:47 IST" finished-at="2022-04-13T13:33:47 IST">
+        </test-method> <!-- BeneficiaryRegistrationMap -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.salesforce.framework.Testcases.MagentoAdminPOC_Test@649bec2e]" name="closeBrowser" is-config="true" duration-ms="1" started-at="2022-04-17T21:59:29 IST" finished-at="2022-04-17T21:59:29 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- com.salesforce.framework.Testcases.SalesforcePOC_Test -->
-    </test> <!-- SF POC test cases -->
-  </suite> <!-- SF performance POC Automation test suite -->
+      </class> <!-- com.salesforce.framework.Testcases.MagentoAdminPOC_Test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

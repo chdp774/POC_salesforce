@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.salesforce.framework.Testcases.SalesforceLoginTest">
+      <class name="com.salesforce.framework.Testcases.MagentoAdminPOC_Test">
         <methods>
-          <include name="launchSite"/>
           <include name="closeBrowser"/>
+          <include name="BeneficiaryRegistrationMap"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.salesforce.framework.Testcases.SalesforceLoginTest -->
+      </class> <!-- com.salesforce.framework.Testcases.MagentoAdminPOC_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
