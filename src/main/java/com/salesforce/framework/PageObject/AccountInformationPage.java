@@ -30,7 +30,7 @@ public class AccountInformationPage extends TestBase{
 	}
 	
 	public void clickOnAccountTab() {
-		waitFor(10);
+		waitFor(15);
 //		accounts_btn.click();
 		driver.switchTo().defaultContent();
 		By loadElement = By.xpath("//a[@title = 'Accounts']/span");
@@ -96,7 +96,9 @@ public class AccountInformationPage extends TestBase{
 			String acctName = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[3]/span/a")).getText();
 			String searchType = driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[8]/span/span")).getText();
 			String searchID = PropertiesOperations.getPropertyValueByKey("accountSearchkey");
+			
 			String sql = "INSERT INTO perf (create_date, atrium_id, account_name, search_type, search_id ) VALUES (?,?,?,?,?)";
+			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, createDate);
 			statement.setString(2, attriumID);

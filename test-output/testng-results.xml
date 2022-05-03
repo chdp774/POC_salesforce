@@ -2,24 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="SF performance POC Automation test suite" duration-ms="91700" started-at="2022-04-18T20:07:30 IST" finished-at="2022-04-18T20:09:02 IST">
+  <suite name="SF performance POC Automation test suite" duration-ms="173615" started-at="2022-04-21T21:12:15 IST" finished-at="2022-04-21T21:15:09 IST">
     <groups>
     </groups>
-    <test name="SF POC test cases" duration-ms="91700" started-at="2022-04-18T20:07:30 IST" finished-at="2022-04-18T20:09:02 IST">
-      <class name="com.salesforce.framework.Testcases.MagentoAdminPOC_Test">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.salesforce.framework.Testcases.MagentoAdminPOC_Test@74d1dc36]" name="setUp" is-config="true" duration-ms="11624" started-at="2022-04-18T20:07:30 IST" finished-at="2022-04-18T20:07:42 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="BeneficiaryRegistrationMap()[pri:0, instance:com.salesforce.framework.Testcases.MagentoAdminPOC_Test@74d1dc36]" name="BeneficiaryRegistrationMap" duration-ms="79936" started-at="2022-04-18T20:07:42 IST" finished-at="2022-04-18T20:09:02 IST">
+    <test name="SF POC test cases" duration-ms="173615" started-at="2022-04-21T21:12:15 IST" finished-at="2022-04-21T21:15:09 IST">
+      <class name="com.salesforce.framework.Testcases.JDE_POC_Test">
+        <test-method status="PASS" signature="BeneficiaryRegistrationMap()[pri:0, instance:com.salesforce.framework.Testcases.JDE_POC_Test@1ca3b418]" name="BeneficiaryRegistrationMap" duration-ms="173130" started-at="2022-04-21T21:12:16 IST" finished-at="2022-04-21T21:15:09 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeneficiaryRegistrationMap -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.salesforce.framework.Testcases.MagentoAdminPOC_Test@74d1dc36]" name="closeBrowser" is-config="true" duration-ms="1" started-at="2022-04-18T20:09:02 IST" finished-at="2022-04-18T20:09:02 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- com.salesforce.framework.Testcases.MagentoAdminPOC_Test -->
+      </class> <!-- com.salesforce.framework.Testcases.JDE_POC_Test -->
     </test> <!-- SF POC test cases -->
   </suite> <!-- SF performance POC Automation test suite -->
 </testng-results>

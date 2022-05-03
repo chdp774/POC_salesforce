@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SF performance POC Automation test suite">
+	<listeners>
+		<listener class-name="com.salesforce.framework.Util.ListenersImplementation" />
+	</listeners>
+	
+	<test name="SF POC test cases">
+		<classes>
+			<class name="com.salesforce.framework.Testcases.JDE_POC_Test" />
+		</classes>
+	</test> 
+</suite>

@@ -6,18 +6,101 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import com.ibm.as400.access.AS400JDBCDriver;
 
 public class JDBC_Connection {
 	public static void main(String[] args) throws SQLException {
 		JDBC_Connection sqlConnection = new JDBC_Connection();
 //		sqlConnection.updateRecords();
 //		sqlConnection.getRecords();
-		sqlConnection.getValuesNull();
+//		sqlConnection.getValuesNull();
+		sqlConnection.DBconectionChecking("85035073");
 	}
 	
-	private final String url = "jdbc:postgresql://ec2-52-36-238-103.us-west-2.compute.amazonaws.com:5432/perf";
-	private final String user = "admin";
-	private final String password = "perfadmin";
+	private final String url = "jdbc:db2://10.20.20.63:10";
+	private final String user = "ITREAD";
+	private final String password = "tech3qa1";
+	
+	public void connectionChecking() {
+		try(Connection connection = DriverManager.getConnection(url, user, password)){
+			if(connection != null) {
+				System.out.println("Connection to postgreSQL server successfully");
+			}else {
+				System.out.println("Failed to connect to postgreSQL server");
+			}
+			
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	List<String> dateList;
+	public void DBconectionChecking(String str) {
+		try {
+			System.out.println("Trying to connect........");
+			String driver = "com.ibm.as400.access.AS400JDBCDriver";
+			String url = "jdbc:as400://10.20.20.63";
+			
+			Class.forName(driver);
+			Connection conn = DriverManager.getConnection(url, "ITREAD", "tech3qa1");
+			
+			String query = "select ABAN8, ABUPMJ, ABUPMT, ABDC from QADTA.F0101 Where ABAN8='" + str +"'";
+
+			Statement stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery(query);
+			while(result.next()) {
+				String atriumid = result.getString("ABAN8");
+				String lastUpdateDate = result.getString("ABUPMJ");
+				String lastUpdateTime = result.getString("ABUPMT");
+				String acctName = result.getString("ABDC");
+				System.out.println(atriumid + " --- " + lastUpdateDate + " ---- " + lastUpdateTime + " --- " + acctName );
+				String date = dateFormat(lastUpdateDate);
+				System.out.println("Formated date: "+date);
+				timeFormat(lastUpdateTime);
+				dateList.add(date);
+				System.out.println("-----" + dateList.size());
+			}
+			System.out.println("-----DONE------");
+			conn.close();
+		}catch(Exception e) {
+//			System.out.println("DB connection failed");
+		}
+	}
+	
+	public static String dateFormat(String str) {
+//		String str = "122102";
+		char[] ch = str.toCharArray();
+		String year = str.substring(0, 3);
+		String daysCount = str.substring(3, 6);
+		int daysCount_int = Integer.parseInt(daysCount);
+//		System.out.println("days Count value is: "+daysCount);
+//		System.out.println("year value is: "+ year);
+		String Uyear = year.replaceAll(year, "2022");
+//		System.out.println(Uyear + ":" + daysCount);
+		
+		LocalDate date = LocalDate.of(2022, Month.JANUARY, 1);
+		LocalDate value = date.plusDays(daysCount_int - 1);
+		String val = value.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//		System.out.println("Formated date : " +val);
+		return val;
+	}
+	
+	public static void timeFormat(String str) {
+//		String str = "111623";
+		char[] ch = str.toCharArray();
+		if(str.length() == 6) {
+			System.out.println("Formated Time: " +ch[0] +""+ ch[1] + ":" + ch[2] + ch[3] + ":" + ch[4] + ch[5]);
+		}else {
+			System.out.println("Formated Time: " + "0" +ch[0]  + ":" + ch[1] + ch[2] + ":" + ch[3]+ ch[4]);
+		}
+		
+	}
 	
 	public void getRecords() throws SQLException {
 		Connection connection = DriverManager.getConnection("jdbc:postgresql://ec2-52-36-238-103.us-west-2.compute.amazonaws.com:5432/perf", "admin","perfadmin");
@@ -121,10 +204,7 @@ public class JDBC_Connection {
 		}
 	}
 	
-	public void getDB_records() {
-		
-		
-	}
+
 	
 	public void connect1() throws SQLException {
 		Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/Salesforce", "postgres","db123");

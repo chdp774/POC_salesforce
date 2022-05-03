@@ -45,7 +45,7 @@ public class SalesforcePOC extends TestBase{
 		waitFor(1);
 		login_Btn.click();
 		waitFor(10);
-		verificationCode.sendKeys(login2());
+//		verificationCode.sendKeys(login2());
 	}
 	
 	public void simpleImportBtn() {
@@ -152,7 +152,7 @@ public class SalesforcePOC extends TestBase{
 		Boolean item = driver.findElement(By.xpath("//div[contains(text(), 'Inserts')]")).isEnabled();
 		System.out.println("value "+ item);
 		System.out.println("Account import completed");
-		waitFor(60);
+		waitFor(63);
 	}
 	
 	public void moveToElement() {
